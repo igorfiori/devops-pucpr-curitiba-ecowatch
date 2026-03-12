@@ -18,8 +18,8 @@ def classificar_treino(dados):
     descricao = interpretar_codigo_clima(codigo_clima)
     
     if codigo_clima >= 51 or temp < 10:
-        return descricao, "❌ Treino Indoor (Vá para a Black Trainer!)", "danger"
+        return descricao, " Treino Indoor (Vá para a Black Trainer!)", "danger"
     elif 15 <= temp <= 26:
-        return descricao, "✅ Treino Outdoor (Parque Barigui liberado!)", "success"
+        return descricao, " Treino Outdoor (Parque Barigui liberado!)", "success"
     else:
-        return descricao, "⚠️ Atenção (Clima instável, prepare o casaco)", "warning"
+        return descricao, " Atenção (Clima instável, prepare o casaco)", "warning"
