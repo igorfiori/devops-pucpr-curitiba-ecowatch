@@ -20,7 +20,7 @@ jobs:
         with:
           name: projeto-ecowatch.zip
           path: |
-            '**.py'
+            **.py
             README.md
 
   deploy: 
