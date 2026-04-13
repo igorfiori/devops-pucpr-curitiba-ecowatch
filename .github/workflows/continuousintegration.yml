@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: Rodar Testes Unitários (Pytest)
-        run: pytest test_analyzer.py
+        run: pytest
 
       - name: Python Lint Code Scanning Action
         uses: advanced-security/python-lint-code-scanning-action@v1.1.3
