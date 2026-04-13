@@ -61,7 +61,7 @@ jobs:
     needs: [testes_e_lint, docker] 
     if: always() 
     steps:
-      - name: Check out repository code # Obrigatório para este plugin ler o seu avatar/commit
+      - name: Check out repository code
         uses: actions/checkout@v4
 
       - name: Discord Commits
