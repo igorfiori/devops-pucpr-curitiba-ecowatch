@@ -51,12 +51,14 @@ jobs:
   discord:
     name: Enviar Alerta
     runs-on: ubuntu-latest
-    needs: [testes_e_lint, docker] # Aguarda os testes e o docker terminarem
-    if: always() # Garante que o Discord vai avisar mesmo se os testes falharem
+    needs: [testes_e_lint, docker] 
+    if: always() 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Discord Commits
-        uses: Sniddl/discord-commits@v1.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Enviar mensagem direta para o Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\": \"**Pipeline EcoWatch Finalizado!** \n👤 **Autor:** ${{ github.actor }} \n🔗 **Acesse:** https://github.com/${{ github.repository }}/pulls\"}" \
+          $DISCORD_WEBHOOK
