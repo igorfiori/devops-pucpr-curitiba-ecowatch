@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Discord Webhook
+      - name: Discord Commits
         uses: Sniddl/discord-commits@v1.6
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}  
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
