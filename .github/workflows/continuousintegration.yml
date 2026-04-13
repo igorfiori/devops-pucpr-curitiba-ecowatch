@@ -1,5 +1,8 @@
 name: Continuous Integration
 on: 
+  push:
+    branches:
+      - main
   pull_request:
     branches: 
       - main
@@ -57,7 +60,10 @@ jobs:
     needs: [testes_e_lint, docker] # Aguarda os testes e o docker terminarem
     if: always() # Garante que o Discord vai avisar mesmo se os testes falharem
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Garante que os commits estejam disponíveis para o script do discord-commits
 
       - name: Discord Commits
         uses: Sniddl/discord-commits@v1.6
