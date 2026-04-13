@@ -4,6 +4,9 @@ on:
     branches: 
       - main
 
+permissions:
+  contents: read
+
 jobs:
   testes_e_lint:
     name: Validar Código e Testes
