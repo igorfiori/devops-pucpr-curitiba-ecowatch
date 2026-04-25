@@ -1,14 +1,13 @@
 name: Continuous Integration
 on: 
-  push:
-    branches:
-      - main
   pull_request:
-    branches: 
-      - main
+    branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
+  security-events: write
 
 jobs:
   build:
@@ -26,11 +25,11 @@ jobs:
     name: Validar Dockerfile
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código # ESTE PASSO É O QUE FALTA!
+      - name: Checkout do código 
         uses: actions/checkout@v4
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3 # v3 ou v4 funcionam bem
+        uses: docker/setup-qemu-action@v3 
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
